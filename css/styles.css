@@ -100,6 +100,7 @@ ul {
 	color: #fff;
 	border-radius: 12px;
 	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.25);
+	white-space: nowrap;
 }
 
 .btn_white {
@@ -128,6 +129,10 @@ ul {
 .logo {
 	display: flex;
 	align-items: center;
+}
+
+.logo__link {
+	max-width: 320px;
 }
 
 .logo__text {
@@ -166,34 +171,34 @@ ul {
 	display: none;
 }
 
-.menu__lines {
+.menu-lines {
 	position: relative;
 	border: none;
 	padding: 0;
 	z-index: 6;
 }
 
-.menu__lines,
-.menu__lines:before,
-.menu__lines:after {
+.menu-lines,
+.menu-lines:before,
+.menu-lines:after {
 	content: "";
 	height: 1.5px;
 	transition: transform 0.3s, width 0.3s;
 	border-radius: 3px;
-	background: #333;
+	background-color: #fff;
 	display: block;
 	transform: rotate(0);
 	width: 32px;
 }
 
-.menu__lines:before {
+.menu-lines:before {
 	position: absolute;
 	transform: translateY(-8px);
 	display: block;
 	right: 0;
 }
 
-.menu__lines:after {
+.menu-lines:after {
 	content: "";
 	position: absolute;
 	display: block;
@@ -228,22 +233,23 @@ ul {
 	align-items: center;
 }
 
-.header__address:before {
-	content: "";
-	display: inline-block;
-	background: url("../images/icons/mark.png") center / contain no-repeat;
-	width: 13px;
-	height: 16px;
-	margin-right: 15px;
-}
-
+.header__address:before,
 .header__worktime:before {
 	content: "";
 	display: inline-block;
-	background: url("../images/icons/time.png") center / contain no-repeat;
-	width: 16px;
-	height: 16px;
 	margin-right: 15px;
+	height: 16px;
+	flex: 0 0 auto;
+}
+
+.header__address:before {
+	background: url("../images/icons/mark-blue.png") center / contain no-repeat;
+	width: 13px;
+}
+
+.header__worktime:before {
+	background: url("../images/icons/time-blue.png") center / contain no-repeat;
+	width: 16px;
 }
 
 .header__contact {
@@ -257,6 +263,7 @@ ul {
 	margin-right: 12px;
 	width: 38px;
 	height: 38px;
+	flex: 0 0 auto;
 }
 
 .header__contact-text {
@@ -270,15 +277,19 @@ ul {
 	font-size: 20px;
 	line-height: 1.5;
 	color: #343434;
+	white-space: nowrap;
 }
 
 .header__contact_phone {
-	margin-left: 75px;
-	margin-right: auto;
+	margin: 0 auto;
 }
 
 .header__contact_phone:before {
 	background: url("../images/icons/phone-red.png") center / contain no-repeat;
+}
+
+.header__contact_email {
+	margin-left: 15px;
 }
 
 .header__contact_email:before {
@@ -419,14 +430,15 @@ ul {
 }
 
 .banner__bg {
-	flex: 1 1 auto;
+	flex: 0 0 auto;
+	width: 470px;
 }
 
 .banner__img {
 	position: absolute;
 	z-index: 1;
 	top: 10px;
-	right: -80px;
+	right: 0;
 }
 
 .banner__circle {
@@ -449,6 +461,15 @@ ul {
 	left: 5px;
 }
 
+.banner_index .banner__img {
+	right: -80px;
+}
+
+.banner_index .banner__bg:first-child .banner__img {
+	left: 0;
+	right: unset;
+}
+
 .content {
 	display: flex;
 }
@@ -468,6 +489,30 @@ ul {
 
 .sidebar {
 	width: 155px;
+}
+
+.sidebar__mobile-btn {
+	position: fixed;
+	left: 15px;
+	top: 5px;
+	z-index: 6;
+	align-items: center;
+	background-color: var(--color-secondary);
+	color: #fff;
+	height: 38px;
+	padding: 0 10px;
+	transition: transform .3s;
+	display: none;
+}
+
+.sidebar__mobile-btn-lines {
+	margin-right: 10px;
+}
+
+.sidebar__mobile-btn-lines,
+.sidebar__mobile-btn-lines:before,
+.sidebar__mobile-btn-lines:after {
+	width: 26px;
 }
 
 .sidebar__list:not(:first-child) {
@@ -562,11 +607,19 @@ ul {
 }
 
 .product {
-	height: 287px;
 	position: relative;
-	padding: 11px 18px 33px;
+	padding-top: 29%;
+}
+
+.product__content {
 	display: flex;
 	flex-direction: column;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	padding: 11px 18px 33px;
 }
 
 .product__icon-box {
@@ -683,7 +736,7 @@ ul {
 
 .callback__text {
 	margin-top: 8px;
-	line-height: 1.88;
+	line-height: 1.43;
 }
 
 .callback__btn {
@@ -734,13 +787,18 @@ ul {
 
 .footer {
 	flex: 0 0 auto;
-	padding: 55px 0 68px;
+	padding: 30px 0 68px;
 	background-color: #373737;
 }
 
 .footer__top {
 	display: flex;
 	justify-content: space-between;
+	margin: 0 -15px;
+}
+
+.footer__column {
+	margin: 25px 15px;
 }
 
 .footer__title {
@@ -823,7 +881,7 @@ ul {
 }
 
 .footer__bottom {
-	margin: 120px auto 0;
+	margin: 90px auto 0;
 	max-width: 855px;
 	text-align: center;
 }
@@ -838,6 +896,7 @@ ul {
 .footer__ps {
 	margin-top: 11px;
 	font-size: 14px;
+	line-height: 1.4;
 	font-weight: 700;
 	color: #fff;
 }
