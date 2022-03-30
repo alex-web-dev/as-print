@@ -117,7 +117,7 @@
 		position: fixed;
 		right: 10px;
 		top: 10px;
-		z-index: 6;
+		z-index: 7;
 	}
 
 	.menu_active .menu__list {
