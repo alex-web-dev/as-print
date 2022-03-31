@@ -581,9 +581,16 @@
 		font-size: 20px;
 	}
 
+	.addition-catalog__list {
+		margin: -7px;
+	}
+
+	.addition-catalog__item {
+		margin: 7px;
+	}
+
 	.addition-product {
 		width: calc(50% - 14px);
-		margin: 7px;
 		min-width: auto;
 	}
 
